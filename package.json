@@ -4,12 +4,10 @@
   "description": "basic test driven js/node app for beginners",
   "main": "index.js",
   "scripts": {
-    "test": "ava"
+    "start": "node ./server",
+    "test": "ava **/*.spec.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kasperstorgaard/web-basics.git"
-  },
+  "repository": "git+https://github.com/kasperstorgaard/web-basics.git",
   "keywords": [
     "web",
     "basics",
@@ -22,5 +20,12 @@
   "bugs": {
     "url": "https://github.com/kasperstorgaard/web-basics/issues"
   },
-  "homepage": "https://github.com/kasperstorgaard/web-basics#readme"
+  "homepage": "https://github.com/kasperstorgaard/web-basics#readme",
+  "devDependencies": {
+    "ava": "^0.18.2",
+    "express": "^4.15.2",
+    "supertest": "^3.0.0",
+    "testdouble": "^2.0.3",
+    "yarn": "^0.21.3"
+  }
 }

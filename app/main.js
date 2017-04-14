@@ -1,0 +1,1 @@
+import './components/app-menu/app-menu';

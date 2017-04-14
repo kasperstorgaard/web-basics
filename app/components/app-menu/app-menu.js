@@ -1,8 +1,6 @@
 import template from './app-menu.html';
 import style from './app-menu.pcss';
 
-console.log(style);
-
 class AppMenu extends HTMLElement {
     constructor() {
         super();

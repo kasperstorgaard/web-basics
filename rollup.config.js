@@ -1,23 +1,17 @@
-import babel from 'rollup-plugin-babel';
-import html from 'rollup-plugin-html';
-
-import postcss from 'rollup-plugin-postcss';
+import vue from 'rollup-plugin-vue';
+import nodeResolve from 'rollup-plugin-node-resolve';
+import nodeGlobals from 'rollup-plugin-node-globals';
+import livereload from 'rollup-plugin-livereload';
 
 export default {
   entry: 'app/main.js',
-  dest: 'dist/main.bundle.js',
+  dest: 'dist/bundle.js',
   format: 'iife',
   plugins: [
-    html({
-      include: '**/*.html'
-    }),
-    babel({
-      include: '**/*.js',
-      exclude: ['node_modules/**']
-    }),
-    postcss({
-      extensions: ['.css', '.pcss']
-    })
+    vue(),
+    nodeResolve(),
+    nodeGlobals(),
+    livereload()
   ],
-  sourceMap: 'inline'
+  sourceMap: true
 };

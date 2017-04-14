@@ -21,11 +21,16 @@ test('gets html response', async t => {
 });
 
 test('serves static files', async t => {
-    fs.writeFileSync(path.join(basePath, 'test.js'), 'const foo = \'bar\';');
+    // create a dummy file to serve
+    const testPath = path.join(basePath, 'test.js');
+    fs.writeFileSync(testPath, 'const foo = \'bar\';');
 
     const app = subject();
 
-    const response = await request(app).get('/test.js');
+    const response = await request(app).get('/dist/test.js');
 
     t.is(response.text, 'const foo = \'bar\';'); 
+
+    // delete the dummy file
+    fs.unlinkSync(testPath);
 });

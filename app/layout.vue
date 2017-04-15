@@ -1,5 +1,12 @@
 <template>
-    <app-menu></app-menu>
+    <div class="layout">
+        <div class="top">
+            <app-menu></app-menu>
+        </div>
+        <div class="content">
+            <router-view></router-view>
+        </div>
+    </div>
 </template>
 
 <script>

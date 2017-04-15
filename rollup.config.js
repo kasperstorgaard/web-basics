@@ -11,7 +11,7 @@ export default {
     vue(),
     nodeResolve(),
     nodeGlobals(),
-    livereload()
+    livereload({watch: 'dist'})
   ],
   sourceMap: true
 };

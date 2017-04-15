@@ -2,7 +2,7 @@ import path from 'path';
 import fs from 'fs';
 import test from 'ava';
 import request from 'supertest';
-import subject from './server';
+import subject from './app';
 
 const basePath = path.join(__dirname, '../dist');
 

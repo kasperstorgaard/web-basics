@@ -1,11 +1,9 @@
 <template>
-    <h1>{{msg}}</h1>
+    <ul class="nav navbar-nav">
+        <li><router-link to="/about">About</router-link></li>
+    </ul>
 </template>
 
 <script>
-export default {
-    data() {
-        return {msg: 'Ohoi welt!'}
-    }
-}
+export default {};
 </script>

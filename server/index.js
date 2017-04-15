@@ -1,6 +1,10 @@
-const server = require('./server.js');
-const app = server();
+const http = require('http');
+const app = require('./app');
+const websockets = require('./websockets');
 
-app.listen(8081);
+const server = http.createServer(app);
+websockets.start(server);
+
+server.listen(8081);
 
 console.log('listening on port 8081');

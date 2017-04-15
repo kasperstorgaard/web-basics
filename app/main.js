@@ -19,3 +19,13 @@ new Vue({
   },
   router
 });
+
+const ws = new WebSocket('ws://localhost:8081');
+
+ws.onmessage = function (event) {
+    console.log(event.data);
+};
+
+ws.onopen = function() {
+    console.log('open');
+}

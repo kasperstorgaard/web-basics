@@ -1,16 +1,9 @@
-const app = require('./app');
-const websocket = require('./websocket');
-const auth = require('./controllers/auth');
+const {server} = require('./app');
+const {receiveStream} = require('./web-socket');
 
-// create the server
-const server = app.start();
-
-// register websocket plugins
-websocket.use(auth());
-
-// start up the web socket connection.
-const wss = websocket.start();
+receiveStream.subscribe(({data}) => console.log(data));
 
 // start the server on port 8081
 server.listen(8081);
+
 console.log('listening on port 8081');

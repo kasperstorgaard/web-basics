@@ -1,5 +1,5 @@
 node_modules/
-dist/
+public/
 test/
 yarn-error.log
 npm-debug.log

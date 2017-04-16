@@ -11,7 +11,7 @@ const routes = [
   {path: '*', component: ErrorPage},
 ];
 
-const router = new VueRouter({
+export const router = new VueRouter({
     mode: 'history',
     routes
 });

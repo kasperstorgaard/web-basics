@@ -4,14 +4,14 @@ import nodeGlobals from 'rollup-plugin-node-globals';
 import livereload from 'rollup-plugin-livereload';
 
 export default {
-  entry: 'app/main.js',
-  dest: 'dist/bundle.js',
+  entry: 'client/main.js',
+  dest: 'public/bundle.js',
   format: 'iife',
   plugins: [
     vue(),
     nodeResolve(),
     nodeGlobals(),
-    livereload({watch: 'dist'})
+    livereload({watch: 'public'})
   ],
   sourceMap: true
 };

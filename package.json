@@ -5,9 +5,9 @@
   "scripts": {
     "prebuild": "npm run clean && npm run markup",
     "build": "./node_modules/.bin/rollup -c",
-    "clean": "rm -rf dist && mkdir dist",
+    "clean": "rm -rf public && mkdir public",
     "develop": "concurrently \"npm run serve\" \"npm run build -- -w\"",
-    "markup": "cp app/index.html dist/index.html",
+    "markup": "cp client/index.html public/index.html",
     "serve": "node ./server",
     "start": "npm run build && npm run serve",
     "test": "ava **/*.spec.js"

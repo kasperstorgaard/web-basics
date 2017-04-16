@@ -4,7 +4,7 @@ import test from 'ava';
 import request from 'supertest';
 import subject from './app';
 
-const basePath = path.join(__dirname, '../dist');
+const basePath = path.join(__dirname, '../public');
 
 test('gets a response', async t => {
     const app = subject();
@@ -27,7 +27,7 @@ test('serves static files', async t => {
 
     const app = subject();
 
-    const response = await request(app).get('/dist/test.js');
+    const response = await request(app).get('/public/test.js');
 
     t.is(response.text, 'const foo = \'bar\';'); 
 

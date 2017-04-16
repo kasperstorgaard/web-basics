@@ -28,4 +28,4 @@ function Dispatcher () {
     this.dispatch = dispatch;
 }
 
-module.exports = Dispatcher;
+module.exports = {Dispatcher};

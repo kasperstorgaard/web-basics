@@ -3,9 +3,6 @@ import VueRouter from 'vue-router';
 
 import Layout from './layout.vue';
 import {router} from './router';
-import {WebSocketManager} from './services/websocket/websocket-manager';
-
-const wsm = new WebSocketManager();
 
 /**
  * Setup plugins.

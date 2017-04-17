@@ -1,13 +1,16 @@
 export class WebSocketManager {
     constructor() {
-        const ws = new WebSocket('ws://localhost:8081');
+        this._ws = new WebSocket('ws://localhost:8081');
 
-        ws.addEventListener('open', () => console.log('open...'));
-        ws.addEventListener('message', message =>
-            console.log(JSON.parse(message.data)));
+        this._ws.addEventListener('open', () => console.log('websockets opened'));
+        this._ws.addEventListener('closed', () => console.log('websockets closed'));
 
-        setTimeout(() => {
-            ws.send(JSON.stringify({action: 'AUTH'}));
-        }, 3000);
+        this._ws.addEventListener('message', message =>
+            console.log('websockets message:', JSON.parse(message.data)));
+    }
+
+    send(action, data) {
+        const message = JSON.stringify({action, data});
+        this._ws.send(message);
     }
 }

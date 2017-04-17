@@ -1,7 +1,7 @@
-const WebSocket = require('ws');
+const {sendValues} = require('../../web-socket');
 
-function auth(data) {
-    console.log('auth');
+function auth() {
+    sendValues.next({data: 'auth completed'});
 }
 
 function handlers() {
@@ -10,4 +10,4 @@ function handlers() {
     };
 }
 
-module.exports = handlers;
+module.exports = {auth: handlers}

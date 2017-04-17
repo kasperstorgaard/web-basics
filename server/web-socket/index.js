@@ -1,5 +1,5 @@
-const {connectionStream} = require('./connection-stream');
+const {webSocketServer} = require('./web-socket-server');
 const {receiveStream} = require('./receive-stream');
-const {sendStream, sendValues} = require('./send-stream');
+const {sendValues} = require('./send-stream');
 
-module.exports = {connectionStream, receiveStream, sendStream, sendValues};
+module.exports = {webSocketServer, receiveStream, sendValues};

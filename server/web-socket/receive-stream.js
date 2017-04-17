@@ -1,19 +1,24 @@
 const {Observable} = require('rxjs');
+const uuid = require('uuid/v4')
 
-const {connectionStream} = require('./connection-stream');
 const {parseMessage} = require('./helpers');
+const {webSocketServer} = require('./web-socket-server');
 
-function getMessageStream(socket) {
+const clientStream = Observable
+    .fromEvent(webSocketServer, 'connection')
+    .map(client => ({id: uuid(), client}));
+
+function getMessageStream({client}) {
     return Observable
-        .fromEvent(socket, 'message')
-        .takeUntil(Observable.fromEvent(socket, 'close'));
+        .fromEvent(client, 'message')
+        .takeUntil(Observable.fromEvent(client, 'close'));
 }
 
-function mapSocketData(socket, message) {
-    const data = parseMessage(message.data);
-    return {socket, data};
+function mapSocketData({id}, message) {
+    const {action, data} = parseMessage(message.data);
+    return {id, action, data};
 }
 
-const receiveStream = connectionStream.mergeMap(getMessageStream, mapSocketData);
+const receiveStream = clientStream.mergeMap(getMessageStream, mapSocketData);
 
 module.exports = {receiveStream};

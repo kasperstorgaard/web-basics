@@ -1,5 +1,5 @@
 const {connectionStream} = require('./connection-stream');
 const {receiveStream} = require('./receive-stream');
-const {sendStream} = require('./send-stream');
+const {sendStream, sendValues} = require('./send-stream');
 
-module.exports = {connectionStream, receiveStream, sendStream};
+module.exports = {connectionStream, receiveStream, sendStream, sendValues};
